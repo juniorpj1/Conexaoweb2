@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Conexaoweb</string>
+    <string name="msg3" />
+    <string name="msg2" />
+    <string name="title_activity_display_message">My Message</string>
+    <string name="string">Digite a URL</string>
+    <string name="a">a</string>
+    <string name="b">b</string>
+    <string name="c">c</string>
+</resources>
