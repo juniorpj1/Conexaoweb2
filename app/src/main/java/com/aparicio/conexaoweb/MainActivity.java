@@ -21,7 +21,7 @@ import java.net.URL;
 
 
 public class MainActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "com.aparicio.Conexaoweb.MESSAGE";
+    //public final static String EXTRA_MESSAGE = "com.aparicio.Conexaoweb.MESSAGE";
     String url;
     private TextView urlEditText;
     private TextView retornoTextView;
@@ -59,15 +59,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, R.string.msg2, Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     public void mostrarDados(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-        String message = retornoTextView.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        Intent i = new Intent(this, DisplayMessageActivity.class);
+        String mensagem = retornoTextView.getText().toString();
+        i.putExtra("mensagem", mensagem);
+        startActivity(i);
     }
 
     public void radioClick(View view) {
@@ -75,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         RadioButton controle = (RadioButton) view;
         boolean checado = controle.isChecked();
-
 
         // testa qual radioclick foi clicado
 
@@ -116,8 +113,6 @@ public class MainActivity extends AppCompatActivity {
 
     private class ComunicacaoAssincrona extends AsyncTask<String, Void, String> {
 
-        public String string2 = " ";
-
 
         @Override
         protected String doInBackground(String... urls) {
@@ -131,21 +126,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
 
-            //String textStr[] = result.split("\\r\\n|\\n|\\r");
-
-            String string2 = result;
-
-            // String[] parts = string.split(";");
-            // String a = parts[0];
-            // String b = parts[1];
-            // String c = parts[2];
-
             retornoTextView.setText(result);
             retornoTextView3.setText("Conectado!");
 
-
         }
-
 
         private String downloadUrl(String myurl) throws IOException {
             InputStream is = null;

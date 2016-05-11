@@ -28,7 +28,8 @@ public class DisplayMessageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                        .setAction("Action", null)
+                        .show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -37,25 +38,20 @@ public class DisplayMessageActivity extends AppCompatActivity {
         retornoTextView02 = (TextView) findViewById(R.id.b);
         retornoTextView03 = (TextView) findViewById(R.id.c);
 
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        Intent i = getIntent();
 
-        String string = message;
+        String mensagem = i.getStringExtra("mensagem");
 
-        String[] parts = string.split(";");
+        String[] parts = mensagem.split(";");
         String a = parts[0];
         String b = parts[1];
         String c = parts[2];
+
 
         retornoTextView01.setText(a);
         retornoTextView02.setText(b);
         retornoTextView03.setText(c);
 
-        //TextView textView = new TextView(this);
-        // textView.setTextSize(40);
-        // textView.setText(message);
-        // RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
-        // layout.addView(textView);
 
     }
 
